@@ -9,10 +9,6 @@ bool ScriptStore::ScriptNameIsFree(const char * baseName) {
 }
 
 ScriptStore::ScriptStore() {
-  addScriptFromTemplate(ScriptTemplate::Squares());
-  addScriptFromTemplate(ScriptTemplate::Parabola());
-  addScriptFromTemplate(ScriptTemplate::Mandelbrot());
-  addScriptFromTemplate(ScriptTemplate::Polynomial());
 }
 
 void ScriptStore::deleteAllScripts() {
