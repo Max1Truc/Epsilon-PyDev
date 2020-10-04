@@ -11,6 +11,7 @@ public:
   void reload();
   int numberOfSubviews() const override;
   View * subviewAtIndex(int index) override;
+  void updateText();
 private:
   void layoutSubviews(bool force = false) override;
   BufferTextView m_bufferTextView;

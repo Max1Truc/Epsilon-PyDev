@@ -16,10 +16,13 @@ void LaunchUsbController::didBecomeFirstResponder() {
 }
 
 bool LaunchUsbController::handleEvent(Ion::Events::Event event) {
+  m_launchUsbView.updateText();
+
   if (event == Ion::Events::OK || event == Ion::Events::EXE) {
     Ion::USB::enable();
     return true;
   }
+  
   return false;
 }
 

@@ -7,7 +7,15 @@ LaunchUsbView::LaunchUsbView() :
   View(),
   m_bufferTextView(KDFont::LargeFont, 0.5, 0.5, KDColorBlack)
 {
-  m_bufferTextView.setText(I18n::translate(I18n::Message::PressEnter));
+  updateText();
+}
+
+void LaunchUsbView::updateText() {
+  if (Ion::USB::isPlugged()) {
+    m_bufferTextView.setText(I18n::translate(I18n::Message::PressEnter));
+  } else {
+    m_bufferTextView.setText(I18n::translate(I18n::Message::NeedPlug));
+  }
 }
 
 void LaunchUsbView::reload() {
