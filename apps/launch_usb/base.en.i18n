@@ -1,4 +1,4 @@
-LaunchUSBApp = "Launch USB"
-LaunchUSBAppCapital = "LAUNCH USB"
+LaunchUSBApp = "USB Mode"
+LaunchUSBAppCapital = "USB Mode"
 PressEnter = "Press EXE to launch USB mode"
 NeedPlug = "Please plug in the calculator"

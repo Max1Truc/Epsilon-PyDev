@@ -1,4 +1,4 @@
-LaunchUSBApp = "Launch USB"
-LaunchUSBAppCapital = "LAUNCH USB"
-PressEnter = "Press EXE to launch USB mode"
-NeedPlug = "Please plug in the calculator"
+LaunchUSBApp = "Mode USB"
+LaunchUSBAppCapital = "MODE USB"
+PressEnter = "Appuyez sur EXE"
+NeedPlug = "Merci de brancher la NumWorks"
