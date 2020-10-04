@@ -7,6 +7,8 @@ Indeed, when programming from a PC for the NumWorks calculator, I prefer executi
 
 I highly recommend you start by reading the [online documentation](https://www.numworks.com/resources/engineering/software/) for NumWorks Epsilon. You'll learn how to install the [SDK](https://www.numworks.com/resources/engineering/software/build/) and about the overall architecture of the Epsilon.
 
+*Note:* If you want to build binaries for an installation through the browser, use the command `make MODEL=n0110 epsilon.onboarding.two_binaries`. They will then be available in `[Epsilon-PyDev directory]/output/release/device/n0110/` with the names `epsilon.onboarding.external.bin` and `epsilon.onboarding.internal.bin`.
+
 ## Contributing
 
 If you run into an issue, I would be very happy if you would file a bug on the issue tracker.
