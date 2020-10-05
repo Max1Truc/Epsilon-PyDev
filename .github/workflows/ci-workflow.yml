@@ -72,6 +72,7 @@ jobs:
         with:
           name: epsilon-n0110.onboarding.external.bin
           path: ./
+      - run: ls -R
       - name: Upload Release Assets (Internal)
         id: upload-release-asset-internal
         uses: actions/upload-release-asset@v1
