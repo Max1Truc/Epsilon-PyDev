@@ -69,6 +69,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: "continuous"
+          gzip: false
           files: epsilon-n0110.onboarding.internal.bin epsilon-n0110.onboarding.external.bin
           allow_override: true
 
