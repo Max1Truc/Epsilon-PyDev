@@ -62,8 +62,8 @@ jobs:
           path: ./
       - name: Rename n0110 firmwares
         run: >
-          mv epsilon.onboarding.internal.bin epsilon-n0110.onboarding.internal.bin
-          mv epsilon.onboarding.external.bin epsilon-n0110.onboarding.external.bin
+          mv epsilon.onboarding.internal.bin epsilon-n0110.onboarding.internal.bin;
+          mv epsilon.onboarding.external.bin epsilon-n0110.onboarding.external.bin;
       - name: Upload continuous release assets
         uses: meeDamian/github-release@2.0
         with:
