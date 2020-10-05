@@ -61,27 +61,12 @@ jobs:
         with:
           name: epsilon-n0110.onboarding.external.bin
           path: ./
-      - run: ls -R
-      - name: Upload Release Assets (Internal)
-        id: upload-release-asset-internal
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload continuous release assets
+        uses: meeDamian/github-release@2.0
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./epsilon-n0110.onboarding.internal.bin
-          asset_name: epsilon-n0110.onboarding.internal.bin
-          asset_content_type: application/octet-stream
-      - name: Upload Release Assets (External)
-        id: upload-release-asset-external
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./epsilon-n0110.onboarding.external.bin
-          asset_name: epsilon-n0110.onboarding.external.bin
-          asset_content_type: application/octet-stream
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: "continuous"
+          files: epsilon-n0110.onboarding.internal.bin epsilon-n0110.onboarding.external.bin
 
 env:
   ACCEPT_OFFICIAL_TOS: 1
