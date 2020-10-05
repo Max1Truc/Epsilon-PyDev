@@ -45,6 +45,53 @@ jobs:
         with:
           name: epsilon-n0110.onboarding.external.bin
           path: output/release/device/n0110/epsilon.onboarding.external.bin
+  create_release:  
+    name: Create Release and Upload artfifacts
+    needs: [n0100, n0110]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "continuous"
+          release_name: "Continuous Integration"
+          body: "The latest (probably unstable) firmware of Epsilon-PyDev"
+          draft: false
+          prerelease: true
+      - name: Download internal firmware
+        uses: actions/download-artifact@v2
+        with:
+          name: epsilon-n0110.onboarding.internal.bin
+          path: ./
+      - name: Download external firmware
+        uses: actions/download-artifact@v2
+        with:
+          name: epsilon-n0110.onboarding.external.bin
+          path: ./
+      - name: Upload Release Assets (Internal)
+        id: upload-release-asset-internal
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./epsilon-n0110.onboarding.internal.bin
+          asset_name: epsilon-n0110.onboarding.internal.bin
+          asset_content_type: application/zip
+      - name: Upload Release Assets (External)
+        id: upload-release-asset-external
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./epsilon-n0110.onboarding.external.bin
+          asset_name: epsilon-n0110.onboarding.external.bin
+          asset_content_type: application/zip
 
 env:
   ACCEPT_OFFICIAL_TOS: 1
